@@ -804,6 +804,8 @@ body.dark-mode .result-box-neutral {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    justify-items: center;
+    align-items: center;
   }
 
   .skills-list {
@@ -818,6 +820,11 @@ body.dark-mode .result-box-neutral {
     text-align: center;
   }
 
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
   .hero-content {
     display: flex;
     flex-direction: column;
@@ -825,8 +832,8 @@ body.dark-mode .result-box-neutral {
     text-align: center;
   }
 
-  .hero-content div[style*="flex"] {
-    justify-content: center;
+  .hero-btns {
+    justify-content: center !important;
     width: 100%;
   }
 
@@ -837,16 +844,26 @@ body.dark-mode .result-box-neutral {
 
   .hero-signature {
     margin-inline: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   /* Hero Stats */
   .hero-stats {
     justify-content: center;
     flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .stat-item {
+    flex: 1 1 120px;
+    text-align: center;
   }
 
   .hero-content .btn {
     width: 100%;
+    max-width: 300px;
     justify-content: center;
   }
 
@@ -1249,11 +1266,16 @@ img.flag-emoji {
 @media (max-width: 768px) {
   .ai-intro {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .ai-intro h3 {
     justify-content: center;
     display: flex;
+    flex-direction: column;
+    /* Stack icon and text for better centering */
     align-items: center;
     gap: 0.5rem;
   }

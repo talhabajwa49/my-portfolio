@@ -813,10 +813,26 @@ body.dark-mode .result-box-neutral {
   .service-card,
   .info-card,
   .skill-pill,
-  .hero-content,
   .comp-card {
     align-items: center;
     text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-content div[style*="flex"] {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-signature {
@@ -1120,14 +1136,17 @@ body.dark-mode .result-box-neutral {
 
 /* International Flags Section */
 .flag-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   text-align: center;
   margin-top: 2rem;
 }
 
 .flag-item {
+  flex: 0 1 140px;
+  /* Fixed width base for centering */
   background: var(--bg-card);
   padding: 1.5rem 0.5rem;
   border-radius: 12px;
@@ -1228,6 +1247,22 @@ img.flag-emoji {
 }
 
 @media (max-width: 768px) {
+  .ai-intro {
+    text-align: center;
+  }
+
+  .ai-intro h3 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .faq-question,
+  .faq-answer {
+    text-align: left;
+  }
+
   .map-content {
     flex-direction: column;
     gap: 0.5rem;

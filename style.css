@@ -794,7 +794,6 @@ body.dark-mode .result-box-neutral {
   }
 
   /* Layout Collapses */
-  .hero-grid,
   .journey-grid,
   .info-grid,
   .industries-grid,
@@ -804,25 +803,19 @@ body.dark-mode .result-box-neutral {
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
-    justify-items: center;
-    align-items: center;
   }
 
-  .skills-list {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card,
-  .info-card,
-  .skill-pill,
-  .comp-card {
-    align-items: center;
-    text-align: center;
-  }
-
+  /* Hero Section Mobile */
   .hero {
     padding-top: 120px;
     padding-bottom: 60px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    justify-items: center;
   }
 
   .hero-content {
@@ -830,41 +823,102 @@ body.dark-mode .result-box-neutral {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  .hero-btns {
-    justify-content: center !important;
     width: 100%;
-  }
-
-  .hero-content p {
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .hero-signature {
     margin-inline: auto;
-    max-width: 100%;
+    max-width: 280px;
+    /* Scaled down for mobile */
     height: auto;
   }
 
-  /* Hero Stats */
-  .hero-stats {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  .hero-btns {
     width: 100%;
+    justify-content: center !important;
+    gap: 1rem;
   }
 
-  .stat-item {
-    flex: 1 1 120px;
-    text-align: center;
-  }
-
-  .hero-content .btn {
+  .hero-btns .btn {
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+
+  .hero-stats {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .stat-item {
+    flex: 1 1 100px;
+    text-align: center;
+  }
+
+  /* Grid & Card Collapses */
+  .journey-grid,
+  .info-grid,
+  .industries-grid,
+  .services-grid,
+  .tools-wrapper,
+  .competencies-grid,
+  .ai-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .service-card,
+  .info-card,
+  .comp-card,
+  .ai-list-card,
+  .ai-intro {
+    width: 100%;
+    max-width: 500px;
+    /* Prevent cards from getting too wide in 1-col */
+    margin-inline: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Lists inside cards center alignment */
+  .service-card ul,
+  .comp-card ul,
+  .ai-list-card ul {
+    text-align: left;
+    display: inline-block;
+    width: fit-content;
+    margin: 1rem auto;
+  }
+
+  .service-card li,
+  .comp-card li,
+  .ai-list-card li {
+    justify-content: flex-start;
+  }
+
+  /* AI Section Heading Centering */
+  .ai-intro h3 {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    display: flex;
+  }
+
+  /* FAQ remains left-aligned */
+  .faq-question,
+  .faq-answer {
+    text-align: left;
+    width: 100%;
+  }
+
+  .faq-question {
+    justify-content: space-between;
   }
 
   /* Mobile Header */
@@ -1264,27 +1318,6 @@ img.flag-emoji {
 }
 
 @media (max-width: 768px) {
-  .ai-intro {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .ai-intro h3 {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    /* Stack icon and text for better centering */
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .faq-question,
-  .faq-answer {
-    text-align: left;
-  }
-
   .map-content {
     flex-direction: column;
     gap: 0.5rem;

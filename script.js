@@ -176,11 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
               body: body.toString(),
             });
 
-            // Hide form and show custom success card
+            // Hide form and description, show custom success card
             form.style.display = 'none';
+            const contactHeaderDesc = form.previousElementSibling ? form.previousElementSibling.querySelector('p') : null;
+            if (contactHeaderDesc) contactHeaderDesc.style.display = 'none';
+
             const responseCard = document.getElementById('form-response');
             if (responseCard) {
               responseCard.style.display = 'block';
+              responseCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
             form.reset();
           } catch (error) {

@@ -167,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } else if (action === 'send_contact') {
           try {
-            // Netlify requires the form-name to be sent in the body
             const body = new URLSearchParams(formData);
             body.append("form-name", "contact");
 
@@ -176,7 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
               body: body.toString(),
             });
-            alert('Thank you! Your message has been sent successfully. Check your Netlify dashboard to see the responses!');
+
+            // Hide form and show custom success card
+            form.style.display = 'none';
+            const responseCard = document.getElementById('form-response');
+            if (responseCard) {
+              responseCard.style.display = 'block';
+            }
             form.reset();
           } catch (error) {
             alert('Sorry, there was an issue sending your message. Please try again or reach out on LinkedIn.');

@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.forEach((value, key) => data[key] = value);
 
       // Simulate/Call API
-      setTimeout(() => {
+      setTimeout(async () => {
         let resultHTML = '';
 
         if (action === 'calculate_revenue') {
@@ -166,8 +166,21 @@ document.addEventListener('DOMContentLoaded', () => {
           document.getElementById('roi-result-main').style.display = 'block';
 
         } else if (action === 'send_contact') {
-          alert('Thank you! Your message has been sent successfully.');
-          form.reset();
+          try {
+            // Netlify requires the form-name to be sent in the body
+            const body = new URLSearchParams(formData);
+            body.append("form-name", "contact");
+
+            await fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: body.toString(),
+            });
+            alert('Thank you! Your message has been sent successfully. Check your Netlify dashboard to see the responses!');
+            form.reset();
+          } catch (error) {
+            alert('Sorry, there was an issue sending your message. Please try again or reach out on LinkedIn.');
+          }
         }
 
         btn.innerHTML = originalText;

@@ -874,12 +874,13 @@ body.dark-mode .result-box-neutral {
   .service-card,
   .info-card,
   .comp-card,
+  .industry-card,
   .ai-list-card,
   .ai-intro {
     width: 100%;
-    max-width: 500px;
-    /* Prevent cards from getting too wide in 1-col */
-    margin-inline: auto;
+    max-width: 100%;
+    /* Allow full width of container on mobile */
+    margin-inline: 0;
     text-align: center;
     display: flex;
     flex-direction: column;

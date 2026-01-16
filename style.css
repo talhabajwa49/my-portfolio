@@ -749,6 +749,23 @@ body.dark-mode .result-box-neutral {
   color: #f0fdf4;
 }
 
+.result-box-success {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  border-radius: 12px;
+  color: #064e3b;
+  font-weight: 500;
+}
+
+body.dark-mode .result-box-success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: #10b981;
+  color: #ecfdf5;
+}
+
+
 /* Contact Section (Previously Footer CTA) */
 .footer-cta {
   text-align: center;

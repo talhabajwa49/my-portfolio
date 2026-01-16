@@ -22,7 +22,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================
-     2. Scroll Animations
+     2. Scroll Effect
+     ========================================= */
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  /* =========================================
+     3. Scroll Animations
      ========================================= */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
